@@ -6,8 +6,8 @@ import argparse
 import dlib
 import imutils
 import os
-if not os.path.exists('Detect-Facial-Features/output_results'):
-    os.makedirs('Detect-Facial-Features/output_results')
+if not os.path.exists('extract_facial_features/output_results'):
+    os.makedirs('extract_facial_features/output_results')
 
 facial_features_cordinates = {}
 
@@ -132,13 +132,13 @@ for (i, rect) in enumerate(rects):
     roi = image[y:y + h, x:x + w]
     roi = imutils.resize(roi, width=250, inter=cv2.INTER_CUBIC)
     # show the particular face part
-    cv2.imwrite("Detect-Facial-Features/output_results/_"+name+".png", roi)
+    cv2.imwrite("extract_facial_features/output_results/_"+name+".png", roi)
 		# cv2.imshow("ROI", roi)
 		# cv2.imshow("Image", clone)
 		# cv2.waitKey(0)
 	# visualize all facial landmarks with a transparent overlay
   output = visualize_facial_landmarks(image, shape)
-  cv2.imwrite("Detect-Facial-Features/output_results/output.png", output)
+  cv2.imwrite("extract_facial_features/output_results/output.png", output)
 	# cv2.imshow("Image", output)
 	# cv2.waitKey(0)
 # loop over the face detections
